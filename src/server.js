@@ -8,11 +8,22 @@ import cors from "cors"
 import productRouter from "./products/product.router.js"
 const dotenv = require('dotenv')
 dotenv.config()
+var corsOptions = {
+  origin: 'http://localhost:5173/',
+  credentials: true,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 const app = express();
-app.use(express.json());
-app.use(
-  cors()
-);
+app.set('etag', 'strong');
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:5173'
+}))
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Pragma', 'no-cache');
+  next();
+})
 app.use(morgan("dev"))
 app.use("/product", productRouter)
 app.post('/register', signup)

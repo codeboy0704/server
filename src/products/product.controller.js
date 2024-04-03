@@ -35,7 +35,7 @@ export const removeProduct = async (req, res, next) => {
     if(!id)
         return res.status(400).send("Id must be provide")
     try{
-        let product = await Product.findByIdAndDelete(id)
+        let product = await Product.findByIdAndDelete(id).exec()
         return res.status(200).json({data: product})
     }catch(e){
         next(e)
@@ -47,6 +47,7 @@ export const getProduct = async (req, res, next) => {
         const productList = await Product.find({}).exec()
         return res.status(200).json({data: productList})
     }catch(e){
+        console.error(e)
         next(e)
     }
 }
