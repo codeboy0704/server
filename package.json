@@ -133,7 +133,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel-node ./src -d lib",
+    "build": "babel ./src -d lib",
     "start": "nodemon --exec babel-node ./src/server.js",
     "vercel-build": "echo hello"
   },
