@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "commonjs",
   "dependencies": {
     "ansi-styles": "^3.2.1",
     "array-buffer-byte-length": "^1.0.1",
