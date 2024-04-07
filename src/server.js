@@ -34,6 +34,7 @@ app.post('/register', signup)
 app.use('/login', signin)
 app.use("/", errorHandler);
 app.listen(config.PORT, () => {
-  console.log(`app is listening on port ${config.PORT}`);
   connect();
 });
+
+export default app

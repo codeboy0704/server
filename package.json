@@ -134,7 +134,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib",
-    "start": "nodemon --exec babel-node ./src/server.js"
+    "start": "nodemon --exec babel-node ./src/server.js",
+    "vercel-build": "echo hello"
   },
   "author": "",
   "license": "ISC",
