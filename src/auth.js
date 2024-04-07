@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import User from "./user/user.model"
-import { config } from "./config";
+import User from "./user/user.model.js"
+import config from "./config.js";
 import bcrypt from "bcrypt"
 
 export function verifyPassword(password, hashPassword) {

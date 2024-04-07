@@ -2,13 +2,12 @@ import express from 'express';
 import connect from "./connection.js"
 import { signin, signup } from './auth.js';
 import errorHandler from './errorHandler.js';
-import { config } from './config.js';
+import  config  from './config.js';
 import morgan from 'morgan';
 import cors from "cors"
 import productRouter from "./products/product.router.js"
 import cartRouter from "./cart/cart.router.js"
-import { json } from 'body-parser';
-const dotenv = require('dotenv')
+import dotenv from "dotenv"
 dotenv.config()
 var corsOptions = {
   origin: 'http://localhost:5173/',
@@ -16,7 +15,7 @@ var corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 const app = express();
-app.use(json())
+app.use(express.json())
 app.set('etag', 'strong');
 app.use(cors({
   credentials: true,
