@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import cors from "cors"
 import productRouter from "./products/product.router.js"
 import cartRouter from "./cart/cart.router.js"
+import { json } from 'body-parser';
 const dotenv = require('dotenv')
 dotenv.config()
 var corsOptions = {
@@ -15,7 +16,7 @@ var corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 const app = express();
-app.use(express.json())
+app.use(json())
 app.set('etag', 'strong');
 app.use(cors({
   credentials: true,

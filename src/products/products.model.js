@@ -16,6 +16,10 @@ export const productSchema = new mongoose.Schema({
     category:{
         type: "String",
         required:[true, "You need to provide a category"]
+    },
+    quantity:{
+        type: Number,
+        default: 0
     }
 }, {timestamps: true})
 

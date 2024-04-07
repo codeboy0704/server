@@ -51,3 +51,15 @@ export const getProduct = async (req, res, next) => {
         next(e)
     }
 }
+
+export const updateQuantity = async (req, res, next) => {
+   const {_id, quantity} = req.body
+   if(!_id)
+        return res.status(400).send("Id and quantity are require")
+    try{
+        const update = await Product.findByIdAndUpdate(_id, {quantity: quantity})
+        return res.status(200).json({data: update})
+    }catch(e){
+        next(e)
+    }
+}

@@ -3,7 +3,7 @@ import { addToCart, getProductsOnCart, removeProductFromCart } from "./cart.cont
 const router = Router();
 
 router.get("/", getProductsOnCart)
-router.post("/add", addToCart)
+router.post("/", addToCart)
 router.delete("/:id", removeProductFromCart)
 
 export default router

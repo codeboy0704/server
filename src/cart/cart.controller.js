@@ -10,9 +10,9 @@ export async function addToCart(req, res, next){
         const product = await Product.findById(id)
         if(product){
             let verifyOnCart = await Cart.findOne({product: product._id}).exec()
-            verifyOnCart ? await Cart.findByIdAndDelete(verifyOnCart._id, {quantity: quantity}).exec()
+            verifyOnCart ? await Cart.findByIdAndUpdate(verifyOnCart._id, {quantity: quantity}).exec()
             : await Cart.create({product: product})
-            return res.status(200).json({data: product})
+            return res.status(200).json({data: verifyOnCart})
         }
     }catch(e){
         next(e)
