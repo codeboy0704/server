@@ -115,5 +115,25 @@ export function verifyPassword(password, hashPassword) {
       next(error);
     }
   };
+
+  export const verifyUser = async (req, res, next) => {
+    const token = req.headers["authorization"];
+    if (!token) {
+      res.status(401).send({ message: "Not auth" });
+    }
+    try {
+      const payload = await verifyToken(token);
+      req.verifyPayload = payload;
+      next()
+    } catch (e) {
+      if (e instanceof jwt.TokenExpiredError)
+        res.status(401).send('Token has expired');
+      else if (e instanceof jwt.JsonWebTokenError)
+        res.status(401).send('Invalid token');
+      else
+        next(e);
+  
+    }
+  };
   
 
