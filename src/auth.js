@@ -123,8 +123,7 @@ export function verifyPassword(password, hashPassword) {
     }
     try {
       const payload = await verifyToken(token);
-      req.verifyPayload = payload;
-      next()
+      return res.status(200).json({data: payload})
     } catch (e) {
       if (e instanceof jwt.TokenExpiredError)
         res.status(401).send('Token has expired');
