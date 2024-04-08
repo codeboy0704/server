@@ -19,7 +19,7 @@ app.use(express.json())
 app.set('etag', 'strong');
 app.use(cors({
   credentials: true,
-  origin: 'https://bambinos.netlify.app/',
+  origin: 'https://bambinos.netlify.app',
   optionsSuccessStatus: 200
 }))
 app.use((req, res, next) => {
