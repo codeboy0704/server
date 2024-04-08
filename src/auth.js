@@ -15,7 +15,7 @@ export function verifyPassword(password, hashPassword) {
   }
   
   export const newToken = (user) => {
-    return jwt.sign({ id: user.id }, config.ACCESS_TOKEN_SECRET, {
+    return jwt.sign({ id: user.id, user: user.name }, config.ACCESS_TOKEN_SECRET, {
       expiresIn: "1d",
     });
   };
