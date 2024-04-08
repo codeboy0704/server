@@ -19,7 +19,7 @@ app.use(express.json())
 app.set('etag', 'strong');
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:5173'
+  origin: 'https://bambinos.netlify.app/'
 }))
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-cache');
