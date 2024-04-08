@@ -1,6 +1,6 @@
 import express from 'express';
 import connect from "./connection.js"
-import { signin, signup } from './auth.js';
+import { signin, signup, verifyUser } from './auth.js';
 import errorHandler from './errorHandler.js';
 import  config  from './config.js';
 import morgan from 'morgan';
@@ -31,6 +31,7 @@ app.use("/product", productRouter)
 app.use("/cart", cartRouter)
 app.post('/register', signup)
 app.use('/login', signin)
+app.use('/verify', verifyUser)
 app.use("/", errorHandler);
 app.listen(config.PORT, () => {
   connect();
